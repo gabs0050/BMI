@@ -40,6 +40,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.app.NotificationCompat.Action
 import br.senai.sp.jandira.bmi.R
 
 @Composable
@@ -54,8 +55,8 @@ fun TelaInicial(modifier: Modifier = Modifier) {
             .background(
                 brush = Brush.linearGradient(
                     listOf(
-                        Color(0xFFFFC107),
-                        Color(0xFFF44336)
+                        Color(0xFF673AB7),
+                        Color(0xFF000000)
                     )
                 )
             ),
@@ -118,7 +119,7 @@ fun TelaInicial(modifier: Modifier = Modifier) {
                                 Icon(
                                     imageVector = Icons.Default.Email,
                                     contentDescription = "",
-                                    tint = Color(0xFFEC7857)
+                                    tint = Color(0xFF673AB7)
                                 )
                             },
                             keyboardOptions = KeyboardOptions(
