@@ -1,9 +1,16 @@
 <resources>
-    <string name="app_name">BMI</string>
+    <string name="app_name">Hi !</string>
     <string name="logo_description">Logo description</string>
     <string name="welcome">Welcome</string>
     <string name="your_name">What\'s your name?</string>
     <string name="your_name_here">Your name here</string>
     <string name="next">Next</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="age">Age</string>
+    <string name="weight">Weight</string>
+    <string name="height">height</string>
+    <string name="buttonCalculate">Calculate</string>
+    <string name="support_name">The name is required!</string>
 
 </resources>
