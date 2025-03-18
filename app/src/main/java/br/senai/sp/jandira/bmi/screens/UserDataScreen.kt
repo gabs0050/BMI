@@ -51,6 +51,15 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
     val nomeState = remember {
         mutableStateOf("")
     }
+    val idadeState = remember {
+        mutableStateOf("")
+    }
+    val pesoState = remember {
+        mutableStateOf("")
+    }
+    val alturaState = remember {
+        mutableStateOf("")
+    }
 
     Box(
         modifier = Modifier
@@ -149,7 +158,7 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                         Column (
                             modifier = Modifier
                                 .weight(1f),
-                                    horizontalAlignment = Alignment.CenterHorizontally
+                            horizontalAlignment = Alignment.CenterHorizontally
                         ) {
                             Card(
                                 modifier = Modifier.size(130.dp),
@@ -184,7 +193,7 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                                     fontSize = 16.sp,
                                     color = Color.White,
 
-                                )
+                                    )
                             }
                         }
                     }
@@ -194,9 +203,9 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                         verticalArrangement = Arrangement.SpaceBetween
                     ) {
                         OutlinedTextField(
-                            value = nomeState.value,
-                            onValueChange = { nome ->
-                                nomeState.value = nome
+                            value = idadeState.value,
+                            onValueChange = { novaIdade ->
+                                idadeState.value = novaIdade
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -214,15 +223,12 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                                     tint = Color(0xFF673AB7)
                                 )
                             },
-                            keyboardOptions = KeyboardOptions(
-                                keyboardType = KeyboardType.Text,
-                                capitalization = KeyboardCapitalization.Sentences
-                            )
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                         )
                         OutlinedTextField(
-                            value = nomeState.value,
-                            onValueChange = { nome ->
-                                nomeState.value = nome
+                            value = pesoState.value,
+                            onValueChange = { novoPeso ->
+                                pesoState.value = novoPeso
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -240,15 +246,12 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                                     tint = Color(0xFF673AB7)
                                 )
                             },
-                            keyboardOptions = KeyboardOptions(
-                                keyboardType = KeyboardType.Text,
-                                capitalization = KeyboardCapitalization.Sentences
-                            )
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                         )
                         OutlinedTextField(
-                            value = nomeState.value,
-                            onValueChange = { nome ->
-                                nomeState.value = nome
+                            value = alturaState.value,
+                            onValueChange = { novaAltura ->
+                                alturaState.value = novaAltura
                             },
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -266,10 +269,7 @@ fun UserDataScreen(modifier: Modifier = Modifier) {
                                     tint = Color(0xFF673AB7)
                                 )
                             },
-                            keyboardOptions = KeyboardOptions(
-                                keyboardType = KeyboardType.Text,
-                                capitalization = KeyboardCapitalization.Sentences
-                            )
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                         )
                     }
                     Button(
