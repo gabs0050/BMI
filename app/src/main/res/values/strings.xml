@@ -14,5 +14,10 @@
     <string name="support_name">The name is required!</string>
     <string name="your_bmi_result">Your BMI Result</string>
     <string name="your_have_class">You have Class I Obesity.</string>
-
+    <string name="high">High</string>
+    <string name="bmi30">30,6</string>
+    <string name="new_calc">New Calc</string>
+    <string name="age_error">A idade é obrigatória</string>
+    <string name="weight_error">O peso é obrigatório</string>
+    <string name="height_error">A altura é obrigatória</string>
 </resources>

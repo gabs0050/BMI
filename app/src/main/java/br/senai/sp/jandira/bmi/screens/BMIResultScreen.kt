@@ -14,14 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import br.senai.sp.jandira.bmi.R
 
 @Composable
-fun BMIResultScreen(modifier: Modifier = Modifier) {
+fun BMIResultScreen(navController: NavHostController?) {
+    var textState = remember { mutableStateOf("") }
+    var errorState = remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier
@@ -44,6 +48,7 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
             Text(
                 text = stringResource(R.string.your_bmi_result),
                 fontSize = 24.sp,
+                fontWeight = FontWeight.Bold,
                 color = Color.White,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -67,11 +72,13 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
                 ) {
                     Column(
                         modifier = Modifier.weight(1f),
+                        verticalArrangement = Arrangement.SpaceAround,
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Card(
                             modifier = Modifier.size(130.dp),
                             shape = CircleShape,
+                            colors = CardDefaults.cardColors(Color(0xFFffffff)),
                             border = BorderStroke(
                                 7.dp,
                                 brush = Brush.linearGradient(
@@ -88,22 +95,122 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
-                                    text = stringResource(R.string.your_bmi_result),
-                                    fontSize = 24.sp,
+                                    text = stringResource(R.string.bmi30),
+                                    fontSize = 38.sp,
+                                    fontWeight = FontWeight.Bold,
                                     color = Color.Black,
                                     modifier = Modifier.align(Alignment.Center),
                                     textAlign = TextAlign.Center
                                 )
                             }
                         }
-                        Spacer(modifier = Modifier.height(16.dp))
+                        Spacer(modifier = Modifier.height(8.dp))
                         Text(
                             text = stringResource(R.string.your_have_class),
-                            fontSize = 16.sp,
-                            color = Color.Gray,
+                            fontSize = 22.sp,
+                            color = Color.Black,
                             textAlign = TextAlign.Center,
                             modifier = Modifier.fillMaxWidth()
                         )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Card (
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(90.dp),
+                            colors = CardDefaults.cardColors(Color(0xFFBA88FF))
+                        ){
+                            Row (
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .height(100.dp)
+                                    .padding(10.dp),
+                                horizontalArrangement = Arrangement.SpaceAround
+                            ) {
+                                Column (
+                                    modifier = Modifier
+                                        .fillMaxHeight(),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.SpaceAround
+                                ) {
+                                    Text(
+                                        text = stringResource(R.string.age),
+                                        fontSize = 20.sp,
+                                    )
+                                    Text(
+                                        text = stringResource(R.string.bmi30),
+                                        fontSize = 20.sp,
+                                        fontWeight = FontWeight.Bold,
+                                    )
+                                }
+                                VerticalDivider()
+                                Column (
+                                    modifier = Modifier
+                                        .fillMaxHeight(),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.SpaceAround
+                                ) {
+                                    Text(
+                                        text = stringResource(R.string.weight),
+                                        fontSize = 20.sp
+                                    )
+                                    Text(
+                                        text = stringResource(R.string.bmi30),
+                                        fontSize = 20.sp,
+                                        fontWeight = FontWeight.Bold,
+                                    )
+                                }
+                                VerticalDivider()
+                                Column (
+                                    modifier = Modifier
+                                        .fillMaxHeight(),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
+                                    verticalArrangement = Arrangement.SpaceAround
+                                ) {
+                                    Text(
+                                        text = stringResource(R.string.high),
+                                        fontSize = 20.sp
+                                    )
+                                    Text(
+                                        text = stringResource(R.string.bmi30),
+                                        fontSize = 20.sp,
+                                        fontWeight = FontWeight.Bold,
+                                    )
+                                }
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Column (
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(250.dp)
+                                .background(Color(0xFFB07169))
+                        ) {  }
+                        Spacer(modifier = Modifier.height(18.dp))
+                        HorizontalDivider()
+                        Spacer(modifier = Modifier.height(18.dp))
+                        Button(
+                            onClick = {},
+                            modifier = Modifier
+                                .height(50.dp)
+                                .fillMaxWidth(),
+                            border = BorderStroke(
+                                1.dp,
+                                brush = Brush.linearGradient(
+                                    listOf(
+                                        Color(0xFF5608A4),
+                                        Color(0xFFBA88FF)
+                                    )
+                                )),
+                            elevation = ButtonDefaults.buttonElevation(5.dp),
+                            colors = ButtonDefaults.buttonColors(Color(0xFF5608A4)),
+                            shape = RoundedCornerShape(10.dp)
+                        ) {
+                            Text(
+                                text = stringResource(R.string.new_calc),
+                                fontSize = 20.sp,
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(120.dp))
                     }
                 }
             }
@@ -114,5 +221,5 @@ fun BMIResultScreen(modifier: Modifier = Modifier) {
 @Preview(showSystemUi = true)
 @Composable
 private fun BMIResultScreenPreview() {
-    BMIResultScreen()
+    BMIResultScreen(null)
 }
