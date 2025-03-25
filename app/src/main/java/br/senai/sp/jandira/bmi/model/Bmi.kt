@@ -6,5 +6,5 @@ import androidx.compose.ui.text.font.FontWeight
 data class Bmi(
     var bmi: Pair<String, Double>,
     var bmiStatus: BmiStatus = BmiStatus.NORMAL,
-    var color: Color = Color.White
+    var color: Color = Color(0xFF009688)
 )
